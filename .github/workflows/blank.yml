@@ -32,15 +32,29 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo List current directory?
+          echo 1. List current directory?------------------------------------
           ls -la
-          echo 
-          echo create a file file1?
-          touch file1
           echo
-          echo create directory dir1?
-          mkdir dir1
-           echo List current directory?
-          ls -la
-          echo what is java version?
-          java --version
+          echo 2. what build tools is installed ?---------------------------
+          mvn --version
+          gradle --version
+          ant -version
+          echo
+          echo 3. where is the android SDK Root?---------------------------
+          echo $ANDROID_SDK_ROOT
+          echo 
+          echo 4. where are the selinium jars?
+          echo $SELECNIUM_JAR_PATH
+          echo
+          echo 5. what is the workspace location?
+          echo $RUNNER_WORKSPACE
+          echo
+          echo 6. who is running the script?
+          whoami
+          echo
+          echo 7.how is the disc laid out?
+          dfecho
+          echo 8. what is the environment variables?
+          env
+          
+          

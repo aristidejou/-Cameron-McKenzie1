@@ -40,5 +40,7 @@ jobs:
           echo
           echo create directory dir1?
           mkdir dir1
+           echo List current directory?
+          ls -la
           echo what is java version?
           java --version

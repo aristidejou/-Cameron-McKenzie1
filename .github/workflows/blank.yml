@@ -41,6 +41,6 @@ jobs:
           ant -version
           echo
           echo 3. let run script.sh
-          run: sh ./script.sh
+          sh ./script.sh
          
           

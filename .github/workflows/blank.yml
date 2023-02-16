@@ -40,5 +40,7 @@ jobs:
           gradle --version
           ant -version
           echo
+          echo 3. let run script.sh
+          run: sh ./script.sh
          
           

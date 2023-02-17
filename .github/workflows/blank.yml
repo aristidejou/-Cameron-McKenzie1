@@ -32,15 +32,21 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo 1. List current directory?------------------------------------
-          ls -la
-          echo
-          echo 2. what build tools is installed ?---------------------------
+          echo 1. what build tools is installed ?---------------------------
           mvn --version
-          gradle --version
-          ant -version
           echo
-          echo 3. let run script.sh
+          echo 2. let run script.sh
           sh ./script.sh
+          
+      - name: step1- set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      
+      - name: step2 checkout the main github branch
+        uses: actions/checkout@v2
+          
+      - name: build jakarta web app with Maven
+        run: echo mvn -B package --file pom.xml
          
           

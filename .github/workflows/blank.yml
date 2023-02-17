@@ -16,7 +16,19 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  build-on-windows: 
+    runs-on: windows-latest
+    
+    steps:
+    
+      - name: step1 check windows execution policy
+        run: |
+          echo here is the windows execution policy:
+          Get-ExecutionPolicy
+      - name: step2 list windows environment variables
+        run: env
+        
+  build-on-ubuntu:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -30,6 +42,7 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
+             #multistep
       - name: Run a multi-line script
         run: |
           echo 1. what build tools is installed ?---------------------------
@@ -37,7 +50,7 @@ jobs:
           echo
           echo 2. let run script.sh
           sh ./script.sh
-          
+        
       - name: step1- set up JDK 1.8
         uses: actions/setup-java@v1
         with:
